@@ -1,5 +1,6 @@
 package app;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +15,9 @@ public class Toolbar extends JPanel implements ActionListener {
     private JButton stopButton;
     private StringListener textListener;
     public Toolbar() {
+        Dimension dimension = getPreferredSize();
+        dimension.height = 50;
+        setPreferredSize(dimension);
         playButton = new JButton("play");
         playButton.addActionListener(this);
         pauseButton = new JButton("pause");

@@ -17,8 +17,14 @@ public class MainFrame extends JFrame {
         setLayout(new BorderLayout());
         statusPanel = new StatusPanel();
         toolbar = new Toolbar();
+        toolbar.setTextListener(new StringListener() {
+            @Override
+            public void textEmitted(String text) {
+                statusPanel.updateStatus(text);
+            }
+        });
         add(toolbar, BorderLayout.NORTH);
-        add(statusPanel, BorderLayout.SOUTH);
+        add(statusPanel, BorderLayout.CENTER);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
